@@ -1,6 +1,6 @@
 {
   "name": "lethub",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Angular 12 with Electron (Typescript + SASS + Hot Reload)",
   "homepage": "https://github.com/maximegris/angular-electron",
   "author": {
