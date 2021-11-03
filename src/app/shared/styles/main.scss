@@ -1,0 +1,21 @@
+@import "./responsive-table";
+@import "./variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Lato', sans-serif !important;
+  color: $black;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}

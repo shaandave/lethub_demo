@@ -1,0 +1,141 @@
+@import '../../../shared/styles/variables';
+@import '../../../shared/styles/mixins';
+
+
+.active{
+  cursor:pointer !important;
+  border: 1px solid #0DB8EE !important;
+  border-radius: 7.5px !important;
+  padding:6px !important;
+  font-size: 14px !important;
+  text-align: center;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.inactive{
+  cursor:pointer !important;
+  border: 1px solid #F63A5C !important;
+  border-radius: 7.5px !important;
+  padding:6px !important;
+  font-size: 14px !important;
+  text-align: center;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.property-card {
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+  box-shadow: 0 1px 20px rgba(162, 173, 199, 0.3);
+
+  &:hover {
+    box-shadow: 0 1px 20px rgba(162, 173, 199, 0.5);
+  }
+
+  &-row {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    // overflow-x: auto;
+    margin-left: -15px;
+
+    @include max-w($d-md) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  &-col {
+    flex-basis: 32%;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    // min-width: 500px;
+    @include max-w($d-md) {
+      min-width: 0px;
+    }
+  }
+
+  &__address {
+    color: $black;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: normal;
+    flex-basis: 45px;
+  }
+
+  &__units {
+    color: $darkgray;
+    font-size: 14px;
+    margin-bottom: auto;
+  }
+
+  &-image {
+    position: relative;
+    height: 218px;
+    min-height: 218px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #F8F9FD;
+    border-radius: 8px 8px 0 0;
+
+    @include max-w($d-md) {
+      min-height: 188px;
+      height: 188px;
+    }
+
+    @include max-w($d-xs) {
+      min-height: 168px;
+      height: 168px;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-stub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 64px;
+    }
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px 20px 20px;
+  }
+
+  @media (max-width: 950px) {
+    width: 100%;
+  }
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+
+    .property-card-image {
+      margin-bottom: 5px;
+
+      &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

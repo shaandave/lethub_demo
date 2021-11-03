@@ -1,0 +1,537 @@
+@import "responsive-table";
+@import "variables";
+@import "mixins";
+
+.mat-menu-panel {
+  box-shadow: 0px 8px 15px rgba(162, 173, 199, 0.4) !important;
+}
+
+.mat-select-arrow {
+  color: $gray !important;
+}
+
+.mat-paginator-container {
+  justify-content: flex-start !important;
+  padding: 0 !important;
+}
+
+.mat-paginator-page-size-label {
+  margin-left: 0 !important;
+}
+
+button.mat-raised-button:disabled {
+  box-shadow: none !important;
+}
+
+.close-button {
+  font-weight: bold;
+  color: $darkgray !important;
+}
+
+* {
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+li {
+  font-family: $main-font;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+input {
+  font-family: $main-font;
+}
+
+table {
+  &.mat-table {
+    font-family: $main-font;
+
+    th {
+      font-size: 14px;
+      padding: 16px 20px 17px !important;
+
+      @include max-w($d-xs) {
+        font-size: 12px;
+      }
+    }
+
+    td {
+      white-space: nowrap; // disable rows jumping off the line when content is too long
+      padding: 16px 20px 17px !important;
+
+      @include max-w($d-xs) {
+        font-size: 12px;
+        word-break: break-word;
+        white-space: normal;
+      }
+    }
+
+    tr {
+      &:last-child > td {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+input {
+  &.mat-input-element {
+    font-family: $main-font;
+    font-size: 14px;
+
+    &::placeholder {
+      font-family: $main-font;
+      font-size: 14px;
+    }
+  }
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.card__title {
+  color: $black;
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.form {
+  &__row {
+    display: flex;
+    flex-direction: column;
+    margin: 0 -15px;
+
+    @include min-w($m-xs) {
+      flex-direction: row;
+    }
+  }
+
+  &__row-baseline {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin: 0 -15px;
+
+    @include min-w($m-xs) {
+      flex-direction: row;
+      align-items: baseline;
+    }
+  }
+
+  &__col {
+    flex-grow: 1;
+    padding: 0 15px;
+  }
+
+  &__subscription {
+    text-transform: uppercase;
+    font-size: 11px;
+    color: $darkgray;
+    font-weight: normal;
+    margin-bottom: 15px;
+
+    &_uppercase {
+      text-transform: uppercase;
+    }
+
+    &_mt-15 {
+      margin-top: 15px;
+    }
+
+    &_mb-15 {
+      margin-bottom: 15px;
+    }
+
+    &_my-15 {
+      @extend .form__subscription_mt-15;
+      @extend .form__subscription_mb-15;
+    }
+  }
+}
+
+.not-found-message {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  color: $darkgray;
+}
+
+.snack-custom {
+  background: $black !important;
+  box-shadow: 0 8px 15px rgba(125, 129, 142, 0.3);
+  border-radius: 8px !important;
+}
+
+.upload {
+  position: relative;
+  border-radius: 5px;
+  height: 200px;
+  min-height: 200px;
+  min-width: 200px;
+  max-height: 550px;
+  overflow: hidden;
+  flex-grow: 1;
+
+  &_empty {
+    border: 1px dashed $gray;
+
+    .upload__btn-group {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &:not(&_empty) {
+    &:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: $black;
+      opacity: 0;
+      transition: all $transition-time;
+    }
+
+    &:hover {
+      .upload__btn-group {
+        display: flex;
+        justify-content: center;
+      }
+
+      .upload__btn.mat-stroked-button {
+        color: #fff;
+      }
+
+      &:before {
+        content: "";
+        border-radius: 8px;
+        opacity: 0.5;
+        transition: all $transition-time;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+
+  &__btn-group {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    display: none;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__btn {
+    &.mat-stroked-button {
+      color: $darkgray;
+
+      & + & {
+        margin-left: 15px;
+      }
+    }
+
+    &_delete {
+      padding: 5px !important;
+      min-width: 5px !important;
+    }
+  }
+}
+
+.stub {
+  width: 100%;
+
+  &-text {
+    text-align: center;
+    color: $gray;
+    font-size: 50px;
+    opacity: 0.5;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+
+    @include max-w($d-xs) {
+      font-size: 22px;
+    }
+
+    &_small {
+      font-size: 30px;
+
+      @include max-w($d-xs) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -85%);
+    width: 80px;
+    height: 64px;
+  }
+}
+
+// Fix for google api icon
+input[lgoogleplaces] {
+  background-image: none !important;
+}
+
+.prefix-cost {
+  position: absolute;
+  left: 0;
+  color: $darkgray;
+  bottom: 5px;
+}
+
+.prefix-color {
+  position: absolute;
+  left: 5px;
+  content: "";
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $green;
+
+  &_red {
+    background-color: $red;
+  }
+
+  &_gray {
+    background-color: $gray;
+  }
+
+  &_yellow {
+    background-color: $yellow;
+  }
+}
+
+.settings {
+  &-card {
+    & + & {
+      margin: 20px 0;
+    }
+
+    &-row {
+      display: flex;
+      flex-direction: row;
+      margin: 0 -15px;
+
+      @include max-w($d-md) {
+        flex-wrap: wrap;
+      }
+    }
+
+    &-col {
+      flex-grow: 1;
+      padding: 0 15px;
+      width: 50%;
+
+      @include max-w($d-md) {
+        width: 100%;
+        margin-bottom: 20px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &_button-wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &-cell {
+    height: 100%;
+    padding: 15px;
+    border: 1px solid $gray;
+    border-radius: 8px;
+
+    &_no-border {
+      border: 0px;
+    }
+
+    &_stub {
+      display: flex;
+      align-items: center;
+      min-height: 100px;
+    }
+
+    &_no-padding {
+      padding: 0;
+    }
+
+    &-group {
+      display: flex;
+    }
+  }
+
+  &-toggle {
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      width: 100%;
+      height: auto !important;
+
+      &_border-bottom {
+        margin-top: 0;
+        padding: 10px 15px;
+        border-bottom: 1px solid $gray;
+      }
+
+      .mat-slide-toggle {
+        @include max-w($d-xs) {
+          margin-left: 10px;
+        }
+
+        &-content {
+          color: $black;
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__text {
+      font-size: 14px;
+      margin-right: 5px;
+    }
+  }
+
+  &__title {
+    font-size: 14px;
+    color: $lightgray;
+    font-weight: normal;
+  }
+
+  &__text {
+    width: 100%;
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 17px;
+    color: $darkgray;
+
+    &_breaked {
+      max-width: 330px;
+
+      @include max-w($d-xs) {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.modal {
+  &-footer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &_prequal {
+      @include max-w($d-xs) {
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+      }
+    }
+
+    &_question {
+      justify-content: flex-end;
+    }
+  }
+
+  &-footer-group {
+    display: flex;
+  }
+
+  &-footer__btn {
+    & + & {
+      margin-left: 15px;
+    }
+  }
+}
+
+.cdk-overlay-pane {
+  @include max-w($d-xs) {
+    max-width: 90vw !important;
+  }
+}
+
+.question {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid $gray;
+  border-radius: 8px;
+  max-height: 280px;
+  width: 100%;
+  overflow-y: auto;
+
+  &-card {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $gray;
+    transition: background-color 0.5s;
+    cursor: pointer;
+
+    @include max-w($d-xs) {
+      padding: 10px 15px;
+    }
+
+    &:hover {
+      background-color: $almost-white;
+      transition: background-color 0.5s;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &__title {
+      font-size: 14px;
+    }
+  }
+
+  .icon-delete {
+    &:before {
+      color: $gray;
+      font-size: 23px;
+
+      @include max-w($d-xs) {
+        font-size: 26px;
+      }
+    }
+  }
+}

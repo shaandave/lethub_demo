@@ -1,0 +1,13 @@
+<div class="snack-bar">
+    <i class="snack-bar__icon"
+       [ngClass]="{
+              'icon-notice': data.type === 'error',
+              'icon-success': data.type === 'success'
+          }">
+    </i>
+    <span class="snack-bar__title" [ngSwitch]="data.type">
+          <span *ngSwitchCase="'success'">Success! {{data.title}}.</span>
+          <span *ngSwitchDefault>{{data.title ? data.title : 'Error. Something went wrong. Try again.'}}</span>
+      </span>
+  </div>
+  

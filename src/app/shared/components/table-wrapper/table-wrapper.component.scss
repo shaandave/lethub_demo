@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.table-wrapper {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 20px;
+  border-radius: 8px;
+  border: 1px solid $gray;
+  min-height: 100px;
+
+  @include max-w($d-xs) {
+    border: 0;
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  &_no-margin {
+    margin-top: 0;
+  }
+}

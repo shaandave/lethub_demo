@@ -1,0 +1,76 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+
+:host {
+  display: flex;
+}
+
+.nav {
+  min-width: 64px;
+  padding-bottom: 45px;
+  background: $blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  //transition: .3s;
+  z-index: 666;
+  position:fixed;
+  top: 0;
+  bottom: 0;
+  transform: translate(-100%);
+
+  @include min-w($d-xs) {
+    position: absolute;
+    top: 60px;
+  }
+
+  @include min-w($d-md) {
+    position: relative;
+    //transition: .3s;
+    transform: translate(0);
+    top: 0;
+  }
+
+  &_open {
+    min-width: 180px;
+    transform: translate(0);
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    height: 44px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0 15px;
+    transition: background-color .2s;
+
+    &:hover,
+    &.active {
+      background: $blue-hover;
+    }
+
+    &_open {
+      justify-content: stretch;
+    }
+
+    &-icon {
+      font-size: 24px;
+    }
+
+    &-text {
+      margin-left: 10px;
+      white-space: nowrap;
+    }
+
+    .menu-info-icon::before{
+      color: #fff;
+    }
+  }
+}

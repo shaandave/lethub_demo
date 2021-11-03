@@ -1,0 +1,67 @@
+<div class="caption">
+  <h3>Sign in</h3>
+  <span>Welcome to LetHub!</span>
+  <p id="version"></p>
+</div>
+
+<form name="form" [formGroup]="loginForm">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="email"
+      name="email"
+      placeholder="Email address"
+      autocomplete="off"
+      formControlName="email"
+    />
+    <mat-error *ngIf="loginForm.controls['email'].hasError('required')"
+      >Email required</mat-error
+    >
+    <mat-error *ngIf="loginForm.controls['email'].hasError('pattern')"
+      >Invalid Email</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      [type]="isShowPassword ? 'text' : 'password'"
+      name="password"
+      placeholder="Password"
+      autocomplete="off"
+      [formControlName]="'password'"
+    />
+    <i
+      matSuffix
+      [ngClass]="isShowPassword ? 'icon-eye-active' : 'icon-eye'"
+      (click)="isShowPassword = !isShowPassword"
+    ></i>
+    <mat-error *ngIf="loginForm.controls['password'].hasError('required')"
+      >Password required</mat-error
+    >
+    <mat-error *ngIf="loginForm.controls['password'].hasError('pattern')">
+      Password should be from 8 to 20 characters with no spaces
+    </mat-error>
+  </mat-form-field>
+
+  <div class="login-buttons">
+    <button id="signin" mat-raised-button class="signin-btn" (click)="login()">
+      Sign in
+    </button>
+  </div>
+</form>
+<div id="notification" class="hidden">
+  <p id="message"></p>
+  <button id="close-button" (click)="closeNotification()">
+    Close
+  </button>
+  <button id="restart-button" (click)="restartApp()" class="hidden">
+    Restart
+  </button>
+</div>
+<!-- <div class="additional-action">
+  <span>Don't have an account?</span>
+  <a [routerLink]="['/auth/registration']"> Sign up</a>
+</div> -->

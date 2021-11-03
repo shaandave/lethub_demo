@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+  {{ message }}
+</div>
+<div mat-dialog-actions align="end">
+  <button
+    class="mat-stroked-button btn"
+    (click)="onNoClick()"
+  >
+    No
+  </button>
+  <button
+    class="mat-raised-button mat-primary btn"
+    cdkFocusInitial
+    (click)="close()"
+  >
+    Yes
+  </button>
+</div>

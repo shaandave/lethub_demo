@@ -1,0 +1,150 @@
+<div class="units-vacant">
+  <div class="units-vacant-top">
+    <div class="units-vacant-top-header">
+      <div>
+        <h3 class="units-vacant__title">{{ syncIntervalTitle }}</h3>
+      </div>
+    </div>
+    <div class="btns-group">
+      <div>
+        <p class="toggle-text">Auto-sync</p>
+      </div>
+      <mat-slide-toggle
+        [(ngModel)]="syncToggle"
+        [disabled]="syncToggleDisabled"
+        class="toggle"
+        (change)="onToggleChange()"
+      ></mat-slide-toggle>
+      <div class="btns" *ngIf="!fbSignedIn">
+        <button
+          mat-raised-button
+          colour="primary"
+          (click)="signInFB()"
+          class="btn"
+        >
+          Sign In - Facebook
+        </button>
+      </div>
+      <div class="btns" *ngIf="fbSignedIn">
+        <button
+          mat-raised-button
+          colour="primary"
+          (click)="signOut()"
+          class="btn"
+        >
+          Sign Out - Facebook
+        </button>
+      </div>
+      <div class="btns" *ngIf="fbSyncDisabled">
+        <button
+          mat-raised-button
+          colour="primary"
+          (click)="syncToFB()"
+          class="btn"
+          disabled
+        >
+          Syncing...
+        </button>
+      </div>
+      <div class="btns" *ngIf="!fbSyncDisabled">
+        <button
+          mat-raised-button
+          colour="primary"
+          (click)="syncToFB()"
+          class="btn"
+        >
+          Sync to Facebook
+        </button>
+      </div>
+    </div>
+  </div>
+  <l-table-wrapper>
+    <l-table-preloader *ngIf="!unitList">
+      <mat-spinner *ngIf="!unitList"></mat-spinner>
+    </l-table-preloader>
+
+    <table mat-table [dataSource]="unitList?.units">
+      <ng-container matColumnDef="select">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          scope="col"
+          class="units-vacant-table__checkbox"
+        >
+          <mat-checkbox
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+          >
+          </mat-checkbox>
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let row"
+          scope="row"
+          class="units-vacant-table__checkbox"
+        >
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+      <ng-container matColumnDef="unit">
+        <th mat-header-cell *matHeaderCellDef>Unit</th>
+        <td mat-cell *matCellDef="let element" class="units-vacant-table__unit">
+          {{ element.unit }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="propertyAddress">
+        <th mat-header-cell *matHeaderCellDef>Property address</th>
+        <td mat-cell *matCellDef="let element" data-label="Address">
+          {{ element.address }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status on Facebook</th>
+        <td mat-cell *matCellDef="let element">
+          {{
+            element.status === "Rented"
+              ? "Inactive"
+              : flaggedUnits.includes(element.id)
+              ? "Synced on Facebook - Flagged"
+              : syncedUnitsIds.includes(element.id)
+              ? "Synced on Facebook"
+              : "Not Synced"
+          }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="showingAgent">
+        <th mat-header-cell *matHeaderCellDef>Leasing Agent</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.showingagentname }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <div *ngIf="unitList?.countUnits === 0">
+      <l-not-found-message
+        [message]="'Sorry, we did not find any vacant units. '"
+      ></l-not-found-message>
+    </div>
+  </l-table-wrapper>
+  <mat-paginator
+    [length]="unitList?.countUnits"
+    [pageSize]="20"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="changePage($event)"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+</div>

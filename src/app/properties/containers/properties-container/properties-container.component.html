@@ -1,0 +1,20 @@
+<div class="properties">
+  <div class="properties-spinner-wrapper">
+    <mat-spinner *ngIf="!propertiesList?.properties"></mat-spinner>
+  </div>
+
+  <div *ngIf="propertiesList?.countProperties === 0">
+    <l-not-found-message [message]="'Sorry, we didn\'t find any properties.'"></l-not-found-message>
+  </div>
+
+  <l-properties
+    [propertiesList]="propertiesList"
+    (changeStatusProperty)="saveVendor($event)"
+  ></l-properties>
+
+  <!-- <div class="properties-footer">
+      <button *ngIf="!isEndPropertyList && propertiesList?.countProperties > 0" (click)="showMore()"
+              mat-stroked-button mScrollTop>Show more
+      </button>
+    </div> -->
+</div>

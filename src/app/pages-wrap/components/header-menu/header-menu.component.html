@@ -1,0 +1,25 @@
+<div class="menu" [ngClass]="{ menu_blue: !isInHeader }">
+  <div
+    style="width: 122px"
+    *ngIf="
+      (isOpenMenu && !isInHeader) ||
+      (widthScreen >= 768 && widthScreen < 992) ||
+      (isOpenMenu && widthScreen > 992)
+    "
+  >
+    <img src="assets/images/logo.svg" alt="Lethub Logo" />
+  </div>
+
+  <div
+    class="btn-menu"
+    [ngClass]="{
+      'btn-menu_open': isOpenMenu && !isInHeader,
+      'btn-menu_white': (isOpenMenu && !isInHeader) || widthScreen > 768
+    }"
+    (click)="showOrHideMenu.emit()"
+  >
+    <span class="btn-menu__line btn-menu__line_top"></span>
+    <span class="btn-menu__line btn-menu__line_middle"></span>
+    <span class="btn-menu__line btn-menu__line_bottom"></span>
+  </div>
+</div>

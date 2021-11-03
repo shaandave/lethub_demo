@@ -1,0 +1,21 @@
+{
+  "name": "lethub",
+  "version": "1.0.0",
+  "author": "Ken",
+  "description": "Electron",
+  "main": "main.js",
+  "private": true,
+  "dependencies": {
+    "@electron/remote": "1.2.0",
+    "@types/electron": "^1.6.10",
+    "axios": "^0.21.4",
+    "dotenv": "^10.0.0",
+    "electron-store": "^8.0.0",
+    "electron-updater": "^4.3.9",
+    "fs-extra": "^10.0.0",
+    "node-cron": "^2.0.3",
+    "node-fetch": "^2.6.1",
+    "puppeteer": "^10.2.0",
+    "puppeteer-autoscroll-down": "^0.1.7"
+  }
+}

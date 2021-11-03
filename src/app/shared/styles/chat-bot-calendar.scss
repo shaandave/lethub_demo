@@ -1,0 +1,58 @@
+@import "variables";
+
+#river_Calender .cal-hour-segment {
+ border-color:darkblue !important;
+ cursor:pointer;
+}
+
+#river_Calender .cal-week-view .cal-event {
+  cursor:not-allowed !important;
+}
+
+.cal-time-label-column {
+  background-color: white !important;
+}
+
+.cal-week-view .cal-event {
+  background-color: #006bcb !important;
+  border-color: #006bcb !important;
+  color: white !important;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+.chat-bot {
+  mwl-calendar-month-cell {
+    min-width: auto;
+  }
+
+  .cal-day-headers {
+    padding-left: 32px;
+    font-size: 11px;
+  }
+
+  .cal-cell-row {
+    height: 50px;
+  }
+
+  .cal-day-cell {
+    min-height: 50px;
+  }
+
+  .cal-time-label-column {
+    width: 32px;
+  }
+
+  .cal-time {
+    width: 32px;
+    font-size: 9px;
+  }
+
+  .icon-left-arrow:before,
+  .icon-right-arrow:before {
+    color: black;
+  }
+
+  .bg-red {
+    background-color: red;
+  }
+}

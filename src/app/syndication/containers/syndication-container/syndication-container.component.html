@@ -1,0 +1,7 @@
+<div *ngIf="unitList">
+  <l-units-vacant
+    [unitList]="unitList"
+    (pagination)="getUnitsVacant($event)"
+    (search)="searchUnits($event)"
+  ></l-units-vacant>
+</div>

@@ -1,0 +1,194 @@
+@import 'variables';
+@import 'pallette';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@mixin l-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  $blue: mat-color($primary, 500);
+  $darkgray: mat-color($primary, A100);
+  $gray: mat-color($primary, A700);
+  $black: mat-color($primary, A200);
+  $lightgray: mat-color($primary, A400);
+
+  a, p, h1, h2, h3, h4, h5, li {
+    color: $black;
+  }
+
+  table {
+    &.mat-table {
+      th {
+        color: $lightgray
+      }
+
+      td {
+        color: $black;
+      }
+    }
+  }
+
+  button {
+    &.mat-raised-button {
+      color: mat-color($primary, default-contrast);
+
+      .mat-primary {
+        background-color: mat-color($primary, 500);
+
+        &:hover {
+          background-color: mat-color($primary, 600);
+        }
+
+        &:active {
+          background-color: mat-color($primary, 700);
+        }
+      }
+
+      .mat-accent {
+        background-color: mat-color($accent, 500);
+
+        &:hover {
+          background-color: mat-color($accent, 600);
+        }
+
+        &:active {
+          background-color: mat-color($accent, 700);
+        }
+      }
+
+      &:disabled {
+        &:disabled { // from origin styles
+          color: mat-color($primary, default-contrast);
+          background-color: mat-color($primary, A700);
+        }
+      }
+    }
+
+    &.mat-stroked-button {
+      background-color: mat-color($primary, 50, 0);
+    }
+  }
+
+  input {
+    color: $black;
+
+    &::placeholder {
+      color: $lightgray;
+    }
+
+    &.mat-input-element {
+      color: $black;
+
+      &::placeholder {
+        color: $lightgray;
+      }
+    }
+
+    &.mat-form-field.mat-focused {
+      .mat-form-field-ripple {
+        background-color: $blue;
+      }
+
+      .mat-form-field-label {
+        color: $blue;
+      }
+    }
+  }
+
+  .mat-tab-label {
+    color: $darkgray;
+  }
+
+  .mat-form-field-appearance-legacy {
+    .mat-form-field-underline {
+      background-color: mat-color($primary, A700);
+    }
+
+    .mat-form-field-label {
+      color: $lightgray;
+    }
+  }
+
+  .mat-form-field-label:not(.mat-empty) {
+    color: $blue;
+  }
+
+  .mat-progress-spinner circle,
+  .mat-spinner circle {
+    stroke: $blue;
+  }
+
+  .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    opacity: 0.2;
+  }
+
+  .cdk-overlay-dark-backdrop {
+    background: mat-color($primary, A200);
+  }
+
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: $blue;
+  }
+
+  .mat-checkbox .mat-checkbox-frame {
+    border-color: $gray;
+  }
+
+  .mat-ripple-element {
+    background-color: mat-color($primary, 500, 0.2) !important;
+  }
+
+  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: mat-color($primary, 200);
+  }
+
+  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: $blue;
+  }
+
+  .mat-slide-toggle-bar {
+    background-color: mat-color($primary, A700);
+  }
+
+  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: $blue;
+  }
+
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $blue;
+  }
+
+  .mat-checkbox-label {
+    color: $black;
+  }
+
+  .mat-menu-item:hover:not([disabled]),
+  .mat-menu-item.cdk-program-focused:not([disabled]),
+  .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+  .mat-menu-item-highlighted:not([disabled]) {
+    background-color: mat-color($primary, 900);
+  }
+
+  .mat-select-placeholder {
+    color: $lightgray;
+  }
+
+}
+
+$my-theme-primary: mat-palette($l-blue-pallete);
+$my-theme-accent: mat-palette($l-yellow-pallete);
+$my-theme-warn: mat-palette($mat-red);
+
+$my-theme: mat-light-theme(
+    $my-theme-primary,
+    $my-theme-accent,
+    $my-theme-warn
+);
+
+
+@include angular-material-theme($my-theme);
+@include l-theme($my-theme);
+

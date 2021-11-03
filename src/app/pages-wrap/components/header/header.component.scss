@@ -1,0 +1,122 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+
+.header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 1px 10px rgba(204, 207, 214, 0.4);
+
+  @include min-w($m-xs) {
+    height: 60px;
+  }
+
+  @include min-w($m-md) {
+    height: 76px;
+    box-shadow: none;
+  }
+
+  &__action {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+
+    @include min-w($m-xs) {
+      padding-right: 30px;
+    }
+
+    @include min-w($m-md) {
+      padding-right: 45px;
+      box-shadow: 0 1px 10px rgba(204, 207, 214, 0.4);
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgba(246, 58, 92, 0.1);
+    color: #EB5757;
+    border: 1px solid #F63A5C;
+    box-sizing: border-box;
+    font-family: Lato;
+    font-style: normal;
+    position: relative;
+    flex: inherit;
+    padding: 1.35vw 0 0 1.35%;
+    font-weight: 500;
+    font-size: 1.4vw;
+
+    @include min-w($m-md) {
+      width: 50px;
+      min-width: 50px;
+      height: 76px;
+    }
+
+    @include max-w($d-md) {
+      padding: 2.35vw 0 0 1.35%;
+      font-size: 2.4vw;
+    }
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+
+    &-arrow {
+      font-size: 24px;
+      margin-left: 45px;
+      cursor: pointer;
+    }
+
+    &-name {
+      font-size: 14px;
+      color: $black;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    &-avatar {
+      cursor: pointer;
+      width: 30px;
+      min-width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-left: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $yellow;
+
+      @include min-w($m-md) {
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+      }
+
+      &-text {
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        @include max-w($d-md) {
+          font-size: 14px;
+        }
+      }
+
+      &-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.notification {
+  cursor: pointer;
+
+  &__icon {
+    font-size: 24px;
+  }
+}

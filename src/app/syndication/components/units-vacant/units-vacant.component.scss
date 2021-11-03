@@ -1,0 +1,227 @@
+@import "../../../shared/styles/mixins.scss";
+@import "../../../shared/styles/variables.scss";
+@import "../../../shared/styles/lethub-theme.scss";
+
+
+
+.units-vacant {
+  box-shadow: 0 1px 20px rgba(162, 173, 199, 0.3);
+  padding: 20px;
+
+  @include max-w($d-xs) {
+    padding: 20px 0;
+  }
+
+  &-buttons {
+    display: flex;
+    align-items: flex-end;
+
+    &.hided {
+      display: none;
+    }
+
+    @include max-w($d-md) {
+      display: none;
+    }
+  }
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include max-w($d-xs) {
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+
+    &-header {
+      display: flex;
+
+      @include max-w($d-xs) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &-table {
+    td {
+      @include max-w($d-xs) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &:before {
+      @include max-w($d-xs) {
+        content: "";
+        width: auto;
+        min-width: 0;
+      }
+    }
+
+    &__copy {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &-field {
+        border: 0;
+        color: $black;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &__action-header {
+      width: 5%;
+    }
+
+    &__checkbox {
+      @include max-w($d-md) {
+        display: none;
+      }
+    }
+
+    &__unit {
+      @include max-w($d-md) {
+        font-size: 14px;
+        margin-bottom: 20px;
+
+        &:before {
+          min-width: 0;
+        }
+      }
+    }
+  }
+
+  &__tag {
+    margin-right: 6px;
+  }
+
+  &__text {
+    margin-right: 30px;
+    font-size: 14px;
+    color: $darkgray;
+    cursor: pointer;
+
+    .icon-delete {
+      position: relative;
+      top: 3px;
+      font-size: 20px;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: normal;
+    margin-right: 45px;
+
+    @include max-w($d-lg) {
+      margin-right: 20px;
+    }
+  }
+
+  &__btn {
+    & + & {
+      margin-left: 10px;
+    }
+  }
+
+  &__search-wrapper {
+    width: 250px;
+
+    @include max-w($d-lg) {
+      width: 120px;
+    }
+
+    @include max-w($d-md) {
+      width: 150px;
+    }
+
+    @include max-w($d-xs) {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  .icon-settings {
+    cursor: pointer;
+
+    &:before {
+      color: $gray;
+      font-size: 24px;
+    }
+
+    @include max-w($d-xs) {
+      position: absolute;
+      top: 20px;
+      right: 15px;
+    }
+  }
+
+  .icon-copy,
+  .icon-settings,
+  .icon-more {
+    cursor: pointer;
+
+    &:before {
+      color: $gray;
+      font-size: 24px;
+    }
+  }
+
+  .icon-desktop {
+    display: block;
+
+    @include max-w($d-md) {
+      display: none;
+    }
+  }
+
+  .icon-mobile {
+    display: none;
+
+    @include max-w($d-md) {
+      display: block;
+    }
+
+    @include max-w($d-xs) {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+  }
+}
+
+.btns {
+  & + & {
+    margin-left: 15px;
+  }
+
+  &-group {
+    display: flex;
+    // margin-bottom: 20px;
+    
+
+    @include max-w($d-xs) {
+      display: none;
+    }
+  }
+}
+
+.btn {
+  background-color: #0db8ee !important;
+  width: 170px;
+}
+
+.toggle {
+  margin-right: 15px;
+  margin-top: 5px;
+}
+
+.toggle-text {
+  align-self: left;
+  margin-top: 8px;
+  margin-right: 15px;
+}

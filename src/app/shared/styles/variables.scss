@@ -1,0 +1,59 @@
+// Colors
+$black: #122658;
+$green: #1ECCC0;
+$red: #F63A5C;
+$almost-white: #F8F9FD;
+
+$gray: #CAD2E7;
+$darkgray: #717D9B;
+$lightgray: #A2ADC7;
+$disabled: $gray;
+
+$blue: #0DB8EE;
+$blue-hover: #2CC6F6;
+$blue-active: #2792BE;
+
+$yellow: #FFB96E;
+$yellow-hover: #FFB54F;
+$yellow-active: #F89C1A;
+
+$white: #FFFFFF;
+$dark-blue: #122658;
+$turquoise: #1ECCC0;
+$dark-blue: #122658;
+
+$rgba-gray-03: rgba(162, 173, 199, 0.3);
+$rgba-gray-06: rgba(162, 173, 199, 0.6);
+$rgba-dark-gray-03: rgba(202, 210, 231, 0.3);
+$rgba-dark-blue-02: rgba(0, 155, 252, 0.2);
+
+
+// MQ Breakpoints
+// Desktop First
+$d-xs: 767px;
+$d-md: 991px;
+$d-lg: 1199px;
+$d-xl: 1549px;
+
+// Mobile First
+$m-xs: 768px;
+$m-md: 992px;
+$m-lg: 1200px;
+$m-xl: 1550px;
+
+// font
+$main-font: 'Lato', sans-serif;
+
+$transition-time: 0.5s;
+
+@-webkit-keyframes mercuryTypingAnimation{
+  0%{
+    -webkit-transform:translateY(0px)
+  }
+  28%{
+    -webkit-transform:translateY(-5px)
+  }
+  44%{
+    -webkit-transform:translateY(0px)
+  }
+}

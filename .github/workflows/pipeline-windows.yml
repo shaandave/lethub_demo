@@ -1,0 +1,100 @@
+name: 'CI - Windows'
+
+on: [push]
+
+jobs:
+  build-and-deploy-staging:
+    name: Staging Windows Pipeline
+    runs-on: windows-2019
+    if: github.ref == 'refs/heads/staging'
+    env:
+      ENVIRONMENT: staging
+    steps:
+      - name: Checkout commit
+        uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.17.4"
+      - name: Setup npm version
+        run: |
+          npm install -g npm@7.20.3
+          node -v
+          npm -v
+      - name: Run dir
+        run: |
+          dir
+      - name: NPM install root folder
+        run: |
+          npm install
+      - name: NPM install app folder
+        run: |
+          cd app/
+          npm install
+      - name: Create env
+        run: |
+          $null >> .env
+          echo "ENV=DEV" >> .env
+          echo "DOWNLOAD_PICTURES_BASE_FILE_PATH=/lethub/unitPictures" >> .env
+          echo LETHUB_API_BASE_URL="https://api.lethub.co" >> .env
+          echo LETHUB_FB_LOG_SLACK_WEBHOOK="https://hooks.slack.com/services/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" >> .env
+          type .env
+      - name: NPM run electron:build
+        run: |
+          npm run electron:build
+      - name: Upload to s3
+        run: |
+          aws s3 cp release/  s3://lethub-electron-staging/windows/ --recursive --exclude "*" --include "Lethub*.exe"
+
+  build-and-deploy-prod:
+    name: Prod Windows Pipeline
+    runs-on: windows-2019
+    if: github.ref == 'refs/heads/master'
+    env:
+      ENVIRONMENT: prod
+    steps:
+      - name: Checkout commit
+        uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.17.4"
+      - name: Setup npm version
+        run: |
+          npm install -g npm@7.20.3
+          node -v
+          npm -v
+      - name: Run dir
+        run: |
+          dir
+      - name: NPM install root folder
+        run: |
+          npm install
+      - name: NPM install app folder
+        run: |
+          cd app/
+          npm install
+      - name: Create env
+        run: |
+          $null >> .env
+          echo "ENV=PROD" >> .env
+          echo "DOWNLOAD_PICTURES_BASE_FILE_PATH=/lethub/unitPictures" >> .env
+          echo LETHUB_API_BASE_URL="https://api.lethub.co" >> .env
+          echo LETHUB_FB_LOG_SLACK_WEBHOOK="https://hooks.slack.com/services/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" >> .env
+          type .env
+      - name: NPM run electron:build
+        run: |
+          npm run electron:build
+      - name: Upload to s3
+        run: |
+          aws s3 cp release/  s3://lethub-electron/windows/ --recursive --exclude "*" --include "Lethub*.exe"

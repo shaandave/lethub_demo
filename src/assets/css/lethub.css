@@ -1,0 +1,17 @@
+#lethubIframe {
+  display: inline-table;
+  position: absolute;
+  bottom: -85px;
+  right: 0%;
+  z-index: 99999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 1100px;
+  height: 800px;
+  margin: auto;
+}

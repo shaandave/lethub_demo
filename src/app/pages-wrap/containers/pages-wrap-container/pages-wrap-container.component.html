@@ -1,0 +1,28 @@
+<div
+  class="pages-wrap"
+  (swipeleft)="onSwipeLeft()"
+  (swiperight)="onSwipeRight()"
+>
+  <l-header
+    [isOpenMenu]="isOpenMenu"
+    [widthScreen]="widthScreen"
+    [user]="$user | async"
+    [avatar]="$avatar | async"
+    (showOrHideMenu)="showOrHideMenu()"
+  ></l-header>
+  <div class="container">
+    <l-menu
+      [isOpenMenu]="isOpenMenu"
+      [widthScreen]="widthScreen"
+      (showOrHideMenu)="showOrHideMenu()"
+    ></l-menu>
+    <main class="main">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  <div
+    class="bg"
+    *ngIf="isOpenMenu && widthScreen < 992"
+    (click)="showOrHideMenu()"
+  ></div>
+</div>

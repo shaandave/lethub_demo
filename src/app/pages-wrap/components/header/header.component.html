@@ -1,0 +1,48 @@
+<header class="header">
+  <l-header-menu
+    [isInHeader]="true"
+    [isOpenMenu]="isOpenMenu"
+    [widthScreen]="widthScreen"
+    (showOrHideMenu)="showOrHideMenu.emit()"
+  ></l-header-menu>
+  <div (click)="addEventForCloseByScroll()" class="header__action">
+     <div class="header__user">
+      <i
+        (click)="openMenu()"
+        class="icon-down header__user-arrow"
+        *ngIf="widthScreen >= 768"
+      ></i>
+    </div>
+    <label
+      (click)="openMenu()"
+      class="header__user-name"
+      *ngIf="widthScreen >= 768"
+      >{{ user?.name }}</label
+    >
+    <div
+      [matMenuTriggerFor]="userMenu"
+      class="header__user-avatar"
+      [ngSwitch]="!!avatar?.url"
+    >
+      <img
+        [src]="avatar?.url"
+        alt=""
+        class="header__user-avatar-img"
+        *ngSwitchCase="true"
+      />
+    </div>
+  </div>
+</header>
+
+<mat-menu #userMenu="matMenu">
+  <button id="logout" mat-menu-item (click)="logout()">Logout</button>
+</mat-menu>
+<!-- <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+  <div fxLayout="row">
+    <div fxLayout="column">
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </div>
+  </div>
+</mat-menu> -->
+
+

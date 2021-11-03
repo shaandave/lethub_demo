@@ -1,0 +1,256 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+@import '../../../shared/styles/lethub-theme.scss';
+
+.lethub-logo {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10%;
+}
+:host {
+  display: grid;
+  grid-template-areas:
+    "container big-text big-text"
+    "container small-text small-text";
+  /* autoprefixer: off */ // IE warning
+  grid-auto-columns: 50%;
+  color: #122658;
+  font-size: 14px;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("../../../../assets/images/auth-bg.jpg") no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 16px;
+  & > * {
+    align-self: center;
+  }
+}
+:host ::ng-deep {
+  .container {
+    margin-left: 75px;
+    height: 350px;
+    max-width: 440px;
+    position: relative;
+    padding: 50px 70px 40px;
+    border-radius: 20px;
+    background: white;
+    text-align: center;
+    grid-area: container;
+  }
+
+  .login-buttons {
+    & > * {
+      width: 100%;
+    }
+  }
+
+  .caption {
+    h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    span {
+      color: $darkgray;
+    }
+  }
+
+  .remember-me-section {
+    span {
+      color: rgba(18,38,88, 0.6);
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0 28px;
+    // mat-checkbox span {
+    //   margin-left: 5px;
+    // }
+  }
+
+  a:not([mat-raised-button]) {
+    color: #0db8ee;
+    text-decoration: none;
+  }
+
+  form {
+    margin-top: 20px;
+
+    mat-form-field {
+      margin-top: 5px;
+      width: 100%;
+
+      i {
+        font-size: 24px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .signin-btn,
+  .google-btn {
+    z-index: 100;
+    color: rgba(18,38,88, 0.6);
+    font-weight: 400 !important;
+    height: 50px;
+    border: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .signin-btn {
+    color: white !important;
+    background: #0db8ee;
+    box-shadow: 0px 4px 15px rgba(0, 155, 252, 0.2) !important;
+  }
+
+  .google-btn {
+    color: $black !important;
+    box-shadow: 0px 4px 15px rgba(206, 214, 235, 0.6) !important;
+    img {
+      margin-right: 20px;
+      width: 20px;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .or-divider {
+    z-index: 0;
+    position: relative;
+    margin: 8px 0;
+    hr {
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      border: none;
+      border-bottom: solid 1px #ced6eb;
+    }
+    span {
+      background: #fefeff;
+      position: relative;
+      padding: 0 5px;
+      border-radius: 10px;
+      font-size: 11px;
+      line-height: 13px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(18,38,88, 0.6)
+    }
+  }
+
+  .additional-action {
+    span {
+      color: rgba(18,38,88, 0.6);
+    }
+    margin-top: 130px;
+  }
+
+  .big-text,
+  .small-text {
+    color: white;
+    margin-left: -40px;
+  }
+
+  .big-text {
+    font-weight: 900;
+    font-size: 75px;
+    line-height: 99px;
+    max-width: 400px;
+    padding-top: 50px;
+    grid-area: big-text;
+
+    .gray-words {
+      color: #bbc7d3;
+    }
+  }
+  .small-text {
+    width: 254px;
+    display: inline-block;
+    line-height: 20px;
+    padding-bottom: 50px;
+    grid-area: small-text;
+  }
+}
+
+@media (max-width: 1240px) {
+  .lethub-logo {
+    margin-left: 90px;
+    transition: margin-left 0.4s;
+  }
+  .big-text,
+  .small-text {
+    margin-left: 50px;
+    transition: margin-left 0.4s;
+  }
+}
+
+@media (max-width: 900px) {
+  .lethub-logo {
+    margin: 0;
+  }
+  :host {
+    grid-template-areas:
+      "big-text"
+      "container"
+      "small-text";
+    /* autoprefixer: off */ // IE warning
+    grid-auto-columns: 100%;
+    & > * {
+      justify-self: center;
+    }
+  }
+  .container {
+    margin: 0;
+  }
+  .big-text,
+  .small-text {
+    color: white;
+    margin: 0;
+    text-align: center;
+    padding: 50px 0 0;
+  }
+  .big-text {
+    width: 300px;
+    padding: 60px 0 40px;
+    font-size: 32px;
+    line-height: 42px;
+  }
+}
+
+@media (max-width: $d-xs) {
+  :host ::ng-deep {
+    .container {
+      padding: 20px;
+      height: inherit;
+      border-radius: 14px;
+    }
+    .additional-action {
+      span {
+        color: rgba(18,38,88, 0.6);
+      }
+      margin: 25px 0 10px;
+    }
+    .big-text {
+      width: 200px;
+      font-size: 20px;
+      line-height: 26px;
+      padding: 40px 0 20px;
+    }
+    .small-text {
+      font-size: 12px;
+      line-height: 17px;
+      padding: 10px 0 0;
+    }
+    [mat-button],
+    [mat-raised-button] {
+      height: 44px;
+    }
+  }
+}

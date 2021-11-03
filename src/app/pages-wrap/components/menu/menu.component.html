@@ -1,0 +1,49 @@
+<nav
+  class="nav"
+  [ngClass]="{
+    nav_open:
+      isOpenMenu || (isOpenMenu && widthScreen >= 768 && widthScreen < 992)
+  }"
+>
+  <div class="nav__menu">
+    <l-header-menu
+      *ngIf="widthScreen < 768"
+      [isOpenMenu]="isOpenMenu"
+      [widthScreen]="widthScreen"
+      (showOrHideMenu)="showOrHideMenu.emit()"
+    ></l-header-menu>
+    <ul>
+      <li *ngFor="let item of mainMenu; let i = index">
+        <a
+          [routerLink]="[item.link]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.link === '/' }"
+          class="nav__item"
+          [ngClass]="{ nav__item_open: isOpenMenu || widthScreen < 992 }"
+          *ngIf="isHideMenu(item)"
+          (click)="clickLink()"
+        >
+          <i class="nav__item-icon {{ item.icon }}"></i>
+          <span
+            class="nav__item-text"
+            *ngIf="isOpenMenu || widthScreen < 992"
+            >{{ item.name }}</span
+          >
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.lethub.co/support/helpdesk"
+          target="_blank"
+          class="nav__item"
+          [ngClass]="{ nav__item_open: isOpenMenu || widthScreen < 992 }"
+        >
+          <i class="nav__item-icon icon-info menu-info-icon"></i>
+          <span class="nav__item-text" *ngIf="isOpenMenu || widthScreen < 992"
+            >Support</span
+          >
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

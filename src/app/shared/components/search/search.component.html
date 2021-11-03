@@ -1,0 +1,17 @@
+<div *ngIf="isCustomStyle && customStyle.trim().length !== 0" [className]="customStyle">
+  <input type="text" #inputSearch>
+</div>
+
+<div class="search" *ngIf="!isCustomStyle">
+  <div class="search-wrapper">
+    <form (ngSubmit)="doSearch(inputSearch)">
+      <input
+        class="search__input"
+        name="searchQuery"
+        [placeholder]="customPlaceholder === undefined ? 'Search' : customPlaceholder"
+        autocomplete="off"
+        maxlength="25" #inputSearch>
+      <i class="icon-search" (click)="doSearch(inputSearch)"></i>
+    </form>
+  </div>
+</div>

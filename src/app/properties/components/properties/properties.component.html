@@ -1,0 +1,36 @@
+<div class="property-card-row">
+  <div
+    class="property-card-col"
+    *ngFor="let item of propertiesList?.properties"
+  >
+    <div class="property-card" (click)="goToPropPage(item.id)">
+      <div class="property-card-image" [ngSwitch]="!!item.image?.url">
+        <img
+          *ngSwitchCase="true"
+          class="property-card-image-img"
+          [src]="item.image?.url"
+        />
+        <img
+          *ngSwitchDefault
+          class="property-card-image-stub"
+          src="assets/images/stub.svg"
+          alt=""
+        />
+      </div>
+      <div class="property-card-content">
+        <p class="property-card__address">
+          {{ item.address }}
+        </p>
+        <p class="property-card__units">
+          {{ item.countAllUnits }} unit<span *ngIf="item.countAllUnits > 1"
+            >s</span
+          >
+          / {{ item.countVacantUnits }} vacant
+        </p>
+        <div [ngClass]="item.activeStatus === 'Active' ? 'active' : 'inactive'">
+          {{ item.activeStatus }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

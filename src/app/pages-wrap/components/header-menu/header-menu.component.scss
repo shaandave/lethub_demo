@@ -1,0 +1,101 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixins";
+
+:host {
+  min-height: 50px;
+}
+
+.menu {
+  min-width: 64px;
+  height: 100%;
+  background: #fff;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 666;
+
+  @include min-w($m-xs) {
+    background: $blue;
+  }
+
+  &_open {
+    min-width: 194px;
+    justify-content: space-between;
+    background: $blue;
+  }
+
+  &_blue {
+    background: $blue;
+  }
+}
+
+img {
+  width: 80%;
+}
+
+.logo {
+  width: 95px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  color: #fff;
+}
+
+.btn-menu {
+  border: 0;
+  padding: 0;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+
+  @include min-w($m-xs) {
+    opacity: .5;
+  }
+
+  &_open {
+    align-items: flex-end;
+  }
+
+  &_white {
+    .btn-menu__line {
+      background: #fff;
+    }
+  }
+
+  &__line {
+    width: 20px;
+    height: 1px;
+    background: #fff;
+    border-radius: 1px;
+    transition: .2s;
+
+    & + & {
+      margin-top: 5px;
+    }
+
+    &_top {
+      width: 13px;
+    }
+
+    &_bottom {
+      width: 17px;
+    }
+
+    @include max-w($d-md) {
+      width: 20px;
+      background: $blue;
+    }
+  }
+
+  &:hover {
+    .btn-menu__line {
+      width: 20px !important;
+    }
+  }
+}

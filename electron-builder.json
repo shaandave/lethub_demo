@@ -1,0 +1,51 @@
+{
+  "asar": false,
+  "productName": "Lethub",
+  "directories": {
+    "output": "release/"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!*.map",
+    "!package.json",
+    "!package-lock.json"
+  ],
+  "extraResources": [
+    {
+      "from": "dist",
+      "to": "app",
+      "filter": [
+        "**/*"
+      ]
+    }
+  ],
+  "win": {
+    "artifactName": "${productName}_v1.${ext}",
+    "icon": "dist/assets/icons/Sign_color1.png",
+    "target": [
+      "portable"
+    ]
+  },
+  "portable": {
+    "splashImage": "dist/assets/icons/electron.bmp"
+  },
+  "mac": {
+    "artifactName": "${productName}_v1.${ext}",
+    "icon": "dist/assets/icons/Sign_color1.png",
+    "target": [
+      "dmg"
+    ]
+  },
+  "linux": {
+    "artifactName": "${productName}_v1.${ext}",
+    "icon": "dist/assets/icons/Sign_color1.png",
+    "target": [
+      "AppImage"
+    ],
+    "publish": {
+      "provider": "generic",
+      "url": "https://lethub-electron-staging.s3.us-west-1.amazonaws.com/linux"
+    }
+  }
+}

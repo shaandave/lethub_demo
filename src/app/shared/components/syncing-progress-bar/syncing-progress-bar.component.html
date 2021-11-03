@@ -1,0 +1,59 @@
+<div
+  style="text-align: center !important; overflow: hidden !important"
+  mat-dialog-content
+>
+  <p
+    style="
+      margin-bottom: 30px;
+      font-size: 20px;
+      color: #717d9b;
+      text-align: center;
+    "
+  >
+    {{ this.syncStatus }}
+  </p>
+  <progress-bar *ngIf="progressValue == 0" [progress]="'0'" [color]="'#56ccf2'">
+  </progress-bar>
+  <progress-bar
+    *ngIf="progressValue == 20"
+    [progress]="'20'"
+    [color]="'#56ccf2'"
+  >
+  </progress-bar>
+  <progress-bar
+    *ngIf="progressValue == 40"
+    [progress]="'40'"
+    [color]="'#56ccf2'"
+  >
+  </progress-bar>
+  <progress-bar
+    *ngIf="progressValue == 60"
+    [progress]="'60'"
+    [color]="'#56ccf2'"
+  >
+  </progress-bar>
+  <progress-bar
+    *ngIf="progressValue == 80"
+    [progress]="'80'"
+    [color]="'#56ccf2'"
+  >
+  </progress-bar>
+  <progress-bar
+    *ngIf="progressValue == 100"
+    [progress]="'100'"
+    [color]="'#56ccf2'"
+  >
+  </progress-bar>
+  <!-- <div *ngIf="success">
+    <i style="font-size: 4vw" class="icon-success"></i>
+    <p style="text-align: center; font-size: 1.2vw; margin-top: 0.5vw">
+      Sync Successful
+    </p>
+  </div> -->
+
+  <div>
+    <button class="mat-raised-button mat-primary" style="margin-top: 10px" (click)="close()" [disabled]="isSyncing">
+      Close
+    </button>
+  </div>
+</div>

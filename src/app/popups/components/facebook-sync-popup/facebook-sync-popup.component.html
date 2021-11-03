@@ -1,0 +1,38 @@
+<div class="container">
+  <h2 mat-dialog-title>Facebook Sync Settings</h2>
+  <div class="content">
+    <span> Sync to Facebook </span>
+    <mat-form-field>
+      <mat-select
+        placeholder="Select sync interval"
+        [formControlName]="'syncHours'"
+      >
+        <!-- <mat-option [value]="once">only once</mat-option>
+        <mat-option [value]="12h">every 12 hours</mat-option>
+        <mat-option [value]="24h">every 24 hours</mat-option>
+        <mat-option value="3d">every 3 days</mat-option>
+        <mat-option [value]="7d">every 7 days</mat-option> -->
+        <mat-option
+          (click)="setSyncInterval(interval.id)"
+          *ngFor="let interval of syncIntervals"
+          [value]="interval.id"
+        >
+          {{ interval.desc }}
+        </mat-option>
+      </mat-select>
+      <mat-error>Interval must be selected</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <button
+      class="close-button mat-stroked-button"
+      mat-dialog-close
+      (click)="cancel()"
+    >
+      Cancel
+    </button>
+    <button class="mat-raised-button mat-primary" (click)="confirm()">
+      Confirm
+    </button>
+  </div>
+</div>

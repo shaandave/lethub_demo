@@ -1,0 +1,175 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("../../../assets/fonts/icomoon/icomoon.eot?promkv");
+  src: url("../../../assets/fonts/icomoon/icomoon.eot?promkv#iefix")
+      format("embedded-opentype"),
+    url("../../../assets/fonts/icomoon/icomoon.ttf?promkv") format("truetype"),
+    url("../../../assets/fonts/icomoon/icomoon.woff?promkv") format("woff"),
+    url("../../../assets/fonts/icomoon/icomoon.svg?promkv#icomoon")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add:before {
+  content: "\e900";
+  color: #cccfd6;
+}
+.icon-bell:before {
+  content: "\e902";
+  color: #cccfd6;
+}
+.icon-calendar:before {
+  content: "\e903";
+  color: #fff;
+  font-size: 24px;
+}
+.icon-calendar-grey:before {
+  content: "\e903";
+  color: $gray;
+  font-size: 24px;
+}
+.icon-call:before {
+  content: "\e904";
+  color: #cccfd6;
+}
+.icon-camera:before {
+  content: "\e905";
+  color: #cccfd6;
+}
+.icon-collapse-menu:before {
+  content: "\e907";
+  color: #cccfd6;
+}
+.icon-copy:before {
+  content: "\e908";
+  color: #cccfd6;
+}
+.icon-dashboard:before {
+  content: "\e909";
+  color: #fff;
+  font-size: 24px;
+}
+.icon-delete:before {
+  content: "\e90a";
+  color: #cccfd6;
+}
+.icon-down:before {
+  content: "\e90b";
+  color: #cccfd6;
+}
+.icon-download:before {
+  content: "\e90c";
+  color: #cccfd6;
+}
+.icon-eye-active:before {
+  content: "\e90e";
+  color: #0db8ee;
+}
+.icon-eye:before {
+  content: "\e90e";
+  color: #cccfd6;
+}
+.icon-info:before {
+  content: "\e90f";
+  color: #cccfd6;
+}
+.icon-leads:before {
+  content: "\e910";
+  color: #fff;
+  font-size: 24px;
+}
+.icon-left-arrow:before {
+  content: "\e911";
+  color: #cccfd6;
+}
+.icon-maintenance:before {
+  content: "\e912";
+  color: #fff;
+  font-size: 24px;
+}
+.icon-menu:before {
+  content: "\e913";
+  color: #cccfd6;
+}
+.icon-more:before {
+  content: "\e914";
+  color: #cccfd6;
+}
+.icon-no:before {
+  content: "\e915";
+  color: #cccfd6;
+}
+.icon-notice:before {
+  content: "\e916";
+  color: #f63a5c;
+}
+.icon-plus:before {
+  content: "\e917";
+  color: #cccfd6;
+}
+.icon-properties:before {
+  content: "\e918";
+  color: #fff;
+  font-size: 24px;
+}
+.icon-reports:before {
+  content: "\e919";
+  color: #fff;
+  font-size: 24px;
+}
+.icon-right-arrow:before {
+  content: "\e91a";
+  color: #cccfd6;
+}
+.icon-search:before {
+  content: "\e91b";
+  color: #cccfd6;
+}
+.icon-send:before {
+  content: "\e91c";
+  color: #0db8ee;
+}
+.icon-send-disabled:before {
+  content: "\e91c";
+  color: #cad2e7;
+}
+
+.icon-settings:before {
+  content: "\e91d";
+  color: #fff;
+  font-size: 24px;
+}
+.icon-success:before {
+  content: "\e91e";
+  color: #1eccc0;
+}
+.icon-tag:before {
+  content: "\e91f";
+  color: #cccfd6;
+}
+.icon-unit:before {
+  content: "\e920";
+}
+.icon-edit:before {
+  content: "\e90d";
+}
+.icon-archive:before {
+  content: "\e901";
+}

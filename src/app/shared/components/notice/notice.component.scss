@@ -1,0 +1,14 @@
+.snack-bar {
+	display: flex;
+  align-items: center;
+
+	&__icon {
+		font-size: 24px;
+		margin-right: 11px;
+	}
+
+	&__title {
+		font-size: 14px;
+    margin-bottom: 0;
+	}
+}

@@ -1,0 +1,202 @@
+// @import "~css-star-rating/scss/star-rating";
+@import "app/shared/styles/reset";
+@import "app/shared/styles/core";
+@import "app/shared/styles/main";
+@import "app/shared/styles/fonts";
+@import "app/shared/styles/mixins.scss";
+
+//Material
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "app/shared/styles/material";
+
+//Calendar
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+@import "app/shared/styles/calendar";
+@import "app/shared/styles/chat-bot-calendar";
+
+
+figure.image img {
+  width: 100%;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  height: 4px; /* height of horizontal scrollbar ← You're missing this */
+  width: 4px; /* width of vertical scrollbar */
+  border: 1px solid #d5d5d5;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* CK Editor Styles */
+
+.ck-toolbar {
+  background: transparent !important;
+  background-color: white !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  border-bottom: 0px !important;
+}
+
+.ck-content {
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  line-height: 25px !important;
+  max-height: 160px !important;
+  height: 160px !important;
+  color: black !important
+}
+
+.ck-content ul {
+  list-style: disc;
+  padding-left: 25px;
+  color: black !important
+}
+
+.ck-content ol {
+  list-style: decimal;
+  padding-left: 25px;
+  color: black !important
+}
+
+.ck-focused ul {
+  list-style: disc;
+  padding-left: 25px;
+  color: black !important
+}
+
+.ck-focused ol {
+  list-style: decimal;
+  padding-left: 25px;
+  color: black !important
+}
+
+.ck-focused {
+  border-color: #c4c4c4 !important;
+  box-shadow: none !important;
+  max-height: 160px !important;
+  height: 160px !important;
+}
+
+.ck-content p {
+  color: black !important;
+}
+
+/* Mat Grid Styles*/
+.mat-grid-tile .mat-figure {
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+}
+
+.mat-button-toggle-checked .mat-button-toggle-label-content {
+  background-color: #122658 !important;
+  color: white;
+}
+
+strong {
+  font-weight: bold;
+}
+
+i {
+  font-style: italic;
+}
+
+.mat-horizontal-stepper-header-container {
+  display: none !important;
+}
+
+.main {
+  overflow-y: hidden !important;
+}
+
+.mat-form-field-infix {
+  border-bottom: 1px solid #cad2e7 !important;
+
+}
+
+
+.mat-form-field-underline {
+  display: none;
+}
+
+.mat-form-field {
+  margin-top: 2%;
+
+}
+.mat-dialog-container {
+  overflow-y: auto !important;
+}
+#mat-label {
+  margin-top: 1%;
+}
+.application-process-label {
+  margin-top: 1%;
+}
+.form__inner-col {
+  margin-top: 1%;
+
+}
+
+.cdk-overlay-pane {
+  min-width: 400px !important;
+
+  @include max-w($d-xs) {
+    min-width: auto !important;
+    height:auto !important;
+  }
+
+}
+
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: deepskyblue  !important;
+}
+.mat-form-field.mat-form-field-invalid .mat-form-field-underline {
+  background-color: deepskyblue  !important;
+}
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color:deepskyblue !important;
+  opacity: 1;
+}
+
+.mat-form-field-empty.mat-form-field-label{
+  color:deepskyblue !important;
+}
+
+.mat-form-field-required-marker{
+      color: #f44336 !important;
+}
+.cal-event-container.cal-starts-within-day.cal-ends-within-day {
+  border: 0px !important;
+}
+.cal-event-container.cal-starts-within-day{
+  border: 0px !important;
+}
+
+#notification {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+  display: none;
+}
